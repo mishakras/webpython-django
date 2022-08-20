@@ -22,10 +22,15 @@ def users(request, id_p=1, name="Максим"):
     return HttpResponse(output)
 
 
-def students(request, id_p=-1):
+def student(request, id_p=-1):
     header = "Персональные данные"
     langs = ["Английский", "Немецкий", "Испанский"]  # массив
     user = {"name": "Максим,", "age": 30}
     addr = ("Виноградная", 23, 45)
     data = {"header": header, "langs": langs, "user": user, "address": addr}
     return TemplateResponse(request, "firstapp/student.html", data)
+
+
+def students(request, id_p=-1):
+    stud = ["Крас", "Секунов", "Петров"]
+    return TemplateResponse(request, "firstapp/students.html", context={"stud": stud})

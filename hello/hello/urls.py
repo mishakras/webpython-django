@@ -23,7 +23,7 @@ urlpatterns = [
     path('products/', views.products),  # маршрут по умолчанию
     path('products/<int:productid>/', views.products),
     path('students/', views.students),  # маршрут по умолчанию
-    path('students/<int:studentid>/', views.students),
+    path('student/<int:studentid>/', views.student),
     path('users/<int:id_p>/<str:name>/', views.users),
     path('users/', views.users),  # маршрут по умолчанию
     path('', views.index, name="home"),

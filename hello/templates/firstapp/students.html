@@ -1,0 +1,11 @@
+{% extends "firstapp/base_template.html" %}
+{% block title %}Студенты{% endblock title %}
+{% block header %}Список студентов{% endblock header %}
+{% block content%}
+<p>Студенты группы</p>
+    {% for i in stud %}
+    <li>{{ i }}</li>
+    {% empty %}
+    <li>Студентов нет</li>
+    {% endfor %}
+{% endblock content %}
