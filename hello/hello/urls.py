@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, re_path
+from django.views.generic import TemplateView
 from firstapp import views
 
 urlpatterns = [
@@ -26,4 +27,8 @@ urlpatterns = [
     path('users/<int:id_p>/<str:name>/', views.users),
     path('users/', views.users),  # маршрут по умолчанию
     path('', views.index, name="home"),
+    path('template', views.template, name="home"),
+    path('about/', TemplateView.as_view(template_name="firstapp/about.html")),
+    path('contact/', TemplateView.as_view(template_name="firstapp/contact.html",
+                                          extra_context={"work": "Разработка программных продуктов"})),
 ]
