@@ -1,10 +1,11 @@
 from django.http import HttpResponse
+from django.shortcuts import render
 from django.template.response import TemplateResponse
 
 
 # Create your views here.
 def index(request):
-    return HttpResponse("Hello World! Это мой первый проект на Django!")
+    return render(request, "firstapp/home.html")
 
 
 def products(request, productid=-1):
