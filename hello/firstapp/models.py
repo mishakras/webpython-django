@@ -24,5 +24,4 @@ class Group(models.Model):
 
 
 class Student(Person):
-    group_id = models.IntegerField()
     Group_name = models.ForeignKey(Group, on_delete=models.CASCADE)
