@@ -4,7 +4,7 @@
 {% block content%}
 <p>Студенты группы</p>
     {% for i in stud %}
-    <li>{{ i }}</li>
+    <li>Имя: {{ i.name }}, отметка {{ i.point }}</li>
     {% empty %}
     <li>Студентов нет</li>
     {% endfor %}

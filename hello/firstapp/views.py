@@ -2,8 +2,11 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from django.template.response import TemplateResponse
 
+from firstapp.UserForm import UserForm
 
-# Create your views here.
+stud = []
+
+
 def index(request):
     return render(request, "firstapp/home.html")
 
@@ -31,6 +34,17 @@ def student(request, id_p=-1):
     return TemplateResponse(request, "firstapp/student.html", data)
 
 
-def students(request, id_p=-1):
-    stud = ["Крас", "Секунов", "Петров"]
+def students(request):
     return TemplateResponse(request, "firstapp/students.html", context={"stud": stud})
+
+
+def add_student(request):
+    if request.method == "POST":
+        name = request.POST.get("name")
+        point = request.POST.get("point")
+        stud.append({"name": name, "point": point})
+        output = "<h2>Пользователь</h2><h3>Имя - {0},Отметка - {1} </hЗ> ".format(name, point)
+        return HttpResponse(output)
+    else:
+        userform = UserForm()
+    return render(request, "firstapp/add_student.html", {"form": userform})
